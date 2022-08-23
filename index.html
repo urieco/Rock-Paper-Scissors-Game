@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        html {
+            background-color: black;
+            color: white;
+        }
+        div {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #yourScore {
+            color: cyan;
+        }
+        #computerScore {
+            color: red;
+        }
+        .winnerDisplay {
+            margin-bottom: 20px;
+        }
+        .round {
+            font-style: italic;
+            text-decoration: underline;
+            width: 15rem;
+            border-top: 3px solid white;
+        }
+    </style>
+</head>
+<body>
+     <h1>Let's play 5 games of Rock-Paper-Scissors.</h1>
+     <div id = "gameDiv">
+     <div>(Your Score) <span id = "yourScore">0</span> - <span id = "computerScore">0</span> (Computer's Score)</div>
+    
+     <br>
+    
+     <button id = "startGame" type = "button"  >Start Round</button> 
+    <div id = "yourPick"></div>
+    <div id = "computerPick"></div>
+    </div>
+
+    <script type = "text/javascript" src = ".\script.js"></script> <!--You have to reference it later in the HTML document, otherwiser, using document.get... will return empty values-->
+
+</body>
+</html>
