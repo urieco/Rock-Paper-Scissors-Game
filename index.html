@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <style>
-        html {
+        body {
             background-color: black;
             color: white;
+            text-align: center;
         }
         div {
             font-weight: bold;
             margin-top: 10px;
+            text-align: center;
         }
         #yourScore {
             color: cyan;
@@ -26,24 +28,29 @@
         .round {
             font-style: italic;
             text-decoration: underline;
-            width: 15rem;
-            border-top: 3px solid white;
+            margin: 0 30vw;
+            justify-items: center;           
+        }
+        .gameLog {
+            margin: 10px;
+            line-height: 25px;
         }
     </style>
 </head>
 <body>
-     <h1>Let's play 5 games of Rock-Paper-Scissors.</h1>
+     <h1>Rock-Paper-Scissors Game</h1>
+     <h3>You will be playing 5 games in one round</h3>
      <div id = "gameDiv">
-     <div>(Your Score) <span id = "yourScore">0</span> - <span id = "computerScore">0</span> (Computer's Score)</div>
+        <div>(Your Score) <span id = "yourScore">0</span> - <span id = "computerScore">0</span> (Computer's Score)</div>
     
      <br>
-    
-     <button id = "startGame" type = "button"  >Start Round</button> 
-    <div id = "yourPick"></div>
-    <div id = "computerPick"></div>
+     <button id = "startGame" title = "Start 5 games">Start Round</button>
+     <button id = "clearLog" title = "This won't clear your score">Clear Logs</button>
+     <button id = "clearScore">Clear Score</button>
     </div>
 
-    <script type = "text/javascript" src = ".\script.js"></script> <!--You have to reference it later in the HTML document, otherwiser, using document.get... will return empty values-->
+    <script type = "text/javascript" src = ".\script.js"></script> 
+    <!--You have to reference the script later in the HTML document, otherwise, using 'document.get...'' will return empty values-->
 
 </body>
 </html>
