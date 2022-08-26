@@ -18,6 +18,8 @@ const clearScoreBtn = document.querySelector("#clearScore");
 clearScoreBtn.addEventListener('click', () => {
     document.querySelector("#yourScore").innerHTML = "0";
     document.querySelector("#computerScore").innerHTML = "0";
+    yourScoreAdd = 0;
+    computerScoreAdd = 0;
 })
 
 function getComputerChoice() {
