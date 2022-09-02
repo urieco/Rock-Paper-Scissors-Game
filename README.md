@@ -25,6 +25,5 @@ Outline:
 
 
 /*TODO:
-1. Make it so that you can the log after each round. 
-2. Make a button that cleans up all the logs from the previous games. 
-3. Decorate the page (?) */
+1. Make it so that you can the log after each round.  
+2. Decorate the page (?) */

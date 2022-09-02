@@ -5,22 +5,41 @@ const computerScore = document.getElementById("computerScore");
 let yourScoreAdd = 0;
 let computerScoreAdd = 0;
 
-const btn = document.querySelector("#startGame");
-btn.addEventListener('click', game); 
-//Using '...game());' causes the function to start right after loading or reloading the page. '...game);' fixed the issue.
+const iconDisplay = document.querySelector(".icon-display");
 
-const clearBtn = document.querySelector("#clearLog");
-clearBtn.addEventListener('click', () =>
-    document.querySelectorAll(".logContainer").forEach(el => el.remove()));
-//clearBtn doesn't work
+function toggleIcon() {
+    iconDisplay.classList.toggle("hide-at-start");
+    (btn.innerText === "Start Round") ? btn.innerText = "Hide Selections" : btn.innerText = "Start Round";
+}
 
-const clearScoreBtn = document.querySelector("#clearScore");
-clearScoreBtn.addEventListener('click', () => {
-    document.querySelector("#yourScore").innerHTML = "0";
-    document.querySelector("#computerScore").innerHTML = "0";
-    yourScoreAdd = 0;
-    computerScoreAdd = 0;
-})
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector('.scissors');
+
+let yourPick = 0;
+
+rock.addEventListener('click', (e) => {
+    yourPick = 1;
+    game();
+}) ;
+paper.addEventListener('click', (e) => {
+    yourPick = 2;
+    game();
+});
+scissors.addEventListener('click', (e) => {
+    yourPick = 3;
+    game();
+});
+
+function getPlayerChoice(input){
+    if (input == 1) {
+        return "Rock";
+    } else if (input == 2) {
+        return "Paper";
+    } else if (input == 3) {
+        return "Scissors";
+    } else {return "an invalid choice."}
+}
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3)+1;
@@ -37,17 +56,7 @@ function getComputerChoice() {
     }
 }
 
-function playerSelection(input){
-    if (input == 1 || input.toLowerCase() == "rock") {
-        return "Rock";
-    } else if (input == 2 || input.toLowerCase() == "paper") {
-        return "Paper";
-    } else if (input == 3 || input.toLowerCase() == "scissors") {
-        return "Scissors";
-    } else {return "an invalid choice."}
-}
-
-function playRound (yourPick, computerPick) {
+function showResult (yourPick, computerPick) {
     if (yourPick === computerPick) {
         return "It's a draw"; 
     } else if (yourPick === "Rock") {
@@ -64,46 +73,58 @@ function playRound (yourPick, computerPick) {
         } else {return "You Lose! Scissors beats Paper";}
     } else {return "You Lose by Default"}
 }
-       
 
-function game() {
-    for (let i = 1; i < 6; i++) {
-
-    const gameCard = document.createElement('div');
-    gameCard.classList.add("logContainer");
-    gameDiv.append(gameCard);
-
-    const round = document.createElement('div');
-    round.classList.add("round");
-    round.textContent = "Round " + i + ":";
-    gameCard.append(round);
-
-    let yourPick = window.prompt("What is your pick?\n [1] Rock\n [2] Paper \n [3] Scissors\n");
-    
-    yourPick = playerSelection(yourPick);
-    let computerPick = getComputerChoice();
-    let outcome = playRound(yourPick, computerPick);
-    
-   const gameLog = document.createElement("div");
-   gameLog.classList.add("gameLog");
-   gameCard.append(gameLog);
-    gameLog.innerText = "You picked " + yourPick + ".\n"
-    + "Computer picked " + computerPick + ". \n"
-    + outcome + ". \n --- 0 ----";
-   
-
+function addScore(outcome) {
     if (outcome.slice(4,5) == "W") {
         yourScoreAdd++;
     } else if (outcome.slice(4,5) == "L") {
         computerScoreAdd++;
     } else {yourScoreAdd += 0;}
-    yourScore.innerText = yourScoreAdd;
-    computerScore.innerText = computerScoreAdd;
-    }
-
-    const roundOver = document.createElement('div');
-    gameDiv.append(roundOver);
-    roundOver.classList.add("logContainer");
-    roundOver.innerText = "The round is over! \n"
 }
-console.log(yourScore);
+
+let roundNum = 0;
+
+function game() {
+    const gameCard = document.createElement('div');
+    gameCard.classList.add("logContainer");
+    gameDiv.append(gameCard); 
+
+    roundNum++;
+    yourPick = getPlayerChoice(yourPick);
+    let computerPick = getComputerChoice();
+    let outcome = showResult(yourPick, computerPick);
+        
+    const gameLog = document.createElement("div");
+    gameCard.append(gameLog);
+    gameLog.innerText = "Round " + roundNum + "\n"
+                        +"You picked " + yourPick + ".\n"
+                        + "Computer picked " + computerPick + ". \n"
+                        + outcome + ". \n ---- 0 ---- \n"
+                        + "The round is over! \n\n";
+   
+    addScore(outcome);
+    yourScore.innerText = yourScoreAdd;
+    computerScore.innerText = computerScoreAdd;    
+}
+
+const btn = document.querySelector("#startGame");
+btn.addEventListener('click', toggleIcon); 
+//Using '...game());' causes the function to start right after loading or reloading the page. '...game);' fixed the issue.
+
+const clearBtn = document.querySelector("#clearLog");
+clearBtn.addEventListener('click', () =>
+    document.querySelectorAll(".logContainer").forEach(el => el.remove()));
+
+const resetScoreBtn = document.querySelector("#resetScore");
+resetScoreBtn.addEventListener('click', () => {
+    document.querySelector("#yourScore").innerText = "0";
+    document.querySelector("#computerScore").innerText = "0";
+    yourScoreAdd = 0;
+    computerScoreAdd = 0;
+    roundNum = 0;
+});
+
+//Additional animation effects
+    const keys = document.querySelectorAll(".choice");
+    keys.forEach(key => key.addEventListener("mouseenter", () => key.classList.add("mouseover")));
+    keys.forEach(key => key.addEventListener("mouseleave", () => key.classList.remove("mouseover")));

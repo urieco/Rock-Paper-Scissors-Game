@@ -1,0 +1,74 @@
+body, html {
+    color: black;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+h1 {
+    border: 5px solid black;
+    padding: 10px 2px;
+    margin: 1em 12em;
+    box-shadow: 5px 10px;
+}
+.heading-line {
+    margin: 20px;
+}
+#yourScore, 
+#computerScore {
+    font-size: 20px;
+    margin: 10px;
+    border: 1px solid;
+    padding: 1rem;
+    box-shadow: 0px 8px;
+}
+#yourScore {
+    color: blue;
+}
+#computerScore {
+    color: red;
+}
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+#startGame, 
+#clearLog, 
+#resetScore {
+    font-size: 20px;
+    box-shadow: 3px 6px;
+    background-color: white;
+    padding: 5px 15px;
+}
+.logContainer {
+    margin: 5px;
+    line-height: 25px;
+    font-size: 20px;
+}
+.icon-display {
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+}
+.rock, 
+.paper,
+.scissors {
+    border: 5px solid black;
+    width: 15rem;
+    height: 15rem;   
+    box-shadow: 5px 10px black;
+    flex: 0;
+    transition: all .07s ease-in-out;
+}
+.hide-at-start {
+    display: none;
+}
+.mouseover {
+    transform: scale(1.2);
+    border-color: #ffc600;
+    box-shadow: 5px 10px 1rem #ffc600;
+}

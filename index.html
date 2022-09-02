@@ -5,52 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        div {
-            font-weight: bold;
-            margin-top: 10px;
-            text-align: center;
-        }
-        #yourScore {
-            color: cyan;
-        }
-        #computerScore {
-            color: red;
-        }
-        .winnerDisplay {
-            margin-bottom: 20px;
-        }
-        .round {
-            font-style: italic;
-            text-decoration: underline;
-            margin: 0 30vw;
-            justify-items: center;           
-        }
-        .gameLog {
-            margin: 10px;
-            line-height: 25px;
-        }
-    </style>
+    <link rel = "stylesheet" href = ".\style.css">
+    <script type = "text/javascript" src = ".\script.js" defer></script> 
 </head>
 <body>
      <h1>Rock-Paper-Scissors Game</h1>
-     <h3>You will be playing 5 games in one round</h3>
+     <div class = "heading-line">✦✦✦✦✦✦</div>
      <div id = "gameDiv">
-        <div>(Your Score) <span id = "yourScore">0</span> - <span id = "computerScore">0</span> (Computer's Score)</div>
+        <pre>
+        <div style = "font-size: 20px; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">               (Your Score) <span id = "yourScore">0</span> : <span id = "computerScore">0</span> (Computer's Score)</div>
+        </pre>
     
      <br>
-     <button id = "startGame" title = "Start 5 games">Start Round</button>
-     <button id = "clearLog" title = "This won't clear your score">Clear Logs</button>
-     <button id = "clearScore">Clear Score</button>
+        <div class = "button-container">
+            <button id = "startGame" title = "Start the game">Start Round</button>
+            <button id = "clearLog" title = "This will only clean the log but not your score">Clear Logs</button>
+            <button id = "resetScore" title = "Thiw will reset the score">Reset Score</button>
+        </div>
+
+        <div class = "icon-display hide-at-start">
+            <img src = ".\img\rock.png" class = "choice rock">
+            <img src = ".\img\paper.png" class = "choice paper">
+            <img src = ".\img\scissors.png" class = "choice scissors">
+        </div>
+    
     </div>
-
-    <script type = "text/javascript" src = ".\script.js"></script> 
-    <!--You have to reference the script later in the HTML document, otherwise, using 'document.get...'' will return empty values-->
-
 </body>
 </html>
+
+<!--Credit: 
+    Icon: flaticon.com-->
