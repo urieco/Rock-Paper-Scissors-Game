@@ -3,7 +3,7 @@ A rock-paper-scissors game that can be in your browser.
 
 Goal: You are playing a game of Rock-Paper-Scissors against your computer. 
 
-Outline:
+Orignal Outline:
 1. The computer randomly picks between Rock, Paper and Scissors. 
     The program saves the the pick. 
 2. You get to pick between the three options. 
@@ -22,8 +22,3 @@ Outline:
         Sum up yourScore and computerScore
 
     Output the score after the fifth game.
-
-
-/*TODO:
-1. Make it so that you can the log after each round.  
-2. Decorate the page (?) */
